@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    无参构造-->
+    <bean id="user" class="com.hu.pojo.User">
+
+    </bean>
+
+    <!--    有参构造，利用name与属性的名称对应-->
+    <bean id="user2" class="com.hu.pojo.User">
+        <constructor-arg name="name" value="huzong2"/>
+    </bean>
+
+    <!--    有参构造，类型匹配-->
+    <bean id="user3" class="com.hu.pojo.User">
+        <constructor-arg type="java.lang.String" value="huzong3"/>
+    </bean>
+
+    <!--    有参构造，索引（0-base）-->
+    <bean id="user4" class="com.hu.pojo.User">
+        <constructor-arg index="0" value="huzong4"/>
+    </bean>
+
+    <!--bean就是java对象,由Spring创建和管理-->
+    <!--id 是bean的标识符,要唯一,
+            如果没有配置id,name就是默认标识符
+            如果配置id,又配置了name,那么name是别名
+        name可以设置多个别名,可以用逗号,分号,空格隔开
+            如果不配置id和name,可以根据applicationContext.getBean(.class)获取对象;
+        class是bean的全限定名=包名+类名
+    -->
+    <!--一旦加载beans.xml，其中所有的对象都会被构造-->
+    <bean id="userT" class="com.hu.pojo.UserT" name="userT2 userT3,userT4;userT5">
+
+    </bean>
+
+    <alias name="userT" alias="alis of userT"/>
+
+
+    <!-- more bean definitions go here -->
+
+</beans>
