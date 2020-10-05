@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="address" class="com.hu.pojo.Address">
+        <property name="address">
+            <null/>
+        </property>
+    </bean>
+
+    <bean id="student" class="com.hu.pojo.Student">
+        <!--    常量注入-->
+        <property name="name" value="huzong"/>
+
+        <!--    Bean注入-->
+        <property name="address" ref="address"/>
+
+        <!--数组注入-->
+        <property name="books" >
+            <array>
+                <value>红楼梦</value>
+                <value>水浒传</value>
+                <value>西游记</value>
+                <value>三国演义</value>
+            </array>
+        </property>
+
+        <!--List注入-->
+        <property name="hobbys">
+            <list>
+                <value>看书</value>
+                <value>打游戏</value>
+            </list>
+        </property>
+
+        <!--Map注入-->
+        <property name="card">
+            <map>
+                <entry key="driver" value="mysql.jdbc"/>
+                <entry key="username" value="root"/>
+                <entry key="password" value="123456"/>
+            </map>
+        </property>
+
+        <!--Set注入-->
+        <property name="games">
+            <set>
+                <value>Lol</value>
+                <value>PUBG</value>
+                <value>Bob</value>
+            </set>
+        </property>
+
+        <!--null注入-->
+        <property name="wife">
+            <null/>
+        </property>
+
+        <!--properties注入-->
+        <property name="info">
+            <props>
+                <prop key="driver">jdbc</prop>
+                <prop key="status">hhh</prop>
+            </props>
+        </property>
+
+
+    </bean>
+
+</beans>
