@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <bean id="userService" class="com.hu.service.UserServiceImpl"/>
+    <bean id="afterLog" class="com.hu.log.AfterLog"/>
+    <bean id="beforeLog" class="com.hu.log.BeforeLog"/>
+
+    <bean id="diy" class="com.hu.config.DiyPointCut"/>
+
+    <aop:config>
+        <aop:aspect ref="diy">
+            <!--第二种方式：使用AOP的标签实现-->
+            <aop:pointcut id="point" expression="execution(* com.hu.service.*.*(..))"/>
+
+            <aop:before method="before" pointcut-ref="point"/>
+            <aop:after method="after" pointcut-ref="point"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

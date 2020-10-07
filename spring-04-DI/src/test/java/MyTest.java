@@ -30,6 +30,7 @@ public class MyTest {
          */
     }
 
+    //p命令空间与c命名空间
     @Test
     public void test2() {
         ApplicationContext context = new ClassPathXmlApplicationContext("beans2.xml");
@@ -41,5 +42,20 @@ public class MyTest {
         System.out.println(user2);
 
         System.out.println(user.equals(user2));
+    }
+
+    //singleton与prototype
+    @Test
+    public void test3() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("beans2.xml");
+
+        User user1 = context.getBean("user", User.class);
+        User user2 = context.getBean("user", User.class);
+
+        User user3 = context.getBean("user2", User.class);
+        User user4 = context.getBean("user2", User.class);
+
+        System.out.println(user1 == user2);
+        System.out.println(user3 == user4);
     }
 }

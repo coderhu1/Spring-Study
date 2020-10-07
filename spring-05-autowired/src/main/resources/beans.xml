@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="cat" class="com.hu.pojo.Cat"/>
+    <bean id="dog" class="com.hu.pojo.Dog"/>
+
+    <!--byName通过set方法后的值与id的值匹配自动装配-->
+    <!--byType通过属性类型与bean类型匹配自动装配-->
+
+    <bean id="people" class="com.hu.pojo.People" autowire="byType">
+        <property name="name" value="huzong"/>
+    </bean>
+
+</beans>

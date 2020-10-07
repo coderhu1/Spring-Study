@@ -7,7 +7,7 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="user" class="com.hu.pojo.User" p:age="18" p:name="huzong"/>
+    <bean id="user" class="com.hu.pojo.User" p:age="18" p:name="huzong" scope="singleton"/>
 
-    <bean id="user2" class="com.hu.pojo.User" c:age="18" c:name="huzong"/>
+    <bean id="user2" class="com.hu.pojo.User" c:age="18" c:name="huzong" scope="prototype"/>
 </beans>

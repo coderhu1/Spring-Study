@@ -13,21 +13,82 @@
         <module>spring-02-hellospring</module>
         <module>spring-03-ioc02</module>
         <module>spring-04-DI</module>
+        <module>spring-05-autowired</module>
+        <module>spring-06-annotation</module>
+        <module>spring-07-appconfig</module>
+        <module>spring-08-proxy</module>
+        <module>spring-09-aop</module>
+        <module>spring-10-mybatis</module>
+        <module>spring-11-transanction</module>
     </modules>
 
     <dependencies>
+
+        <!--Sping相关-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>5.2.0.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>5.1.10.RELEASE</version>
+        </dependency>
 
+        <!--junit-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+
+        <!--aspectJ AOP织入器-->
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.4</version>
+        </dependency>
+
+        <!--mysql-connector-java-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.47</version>
+        </dependency>
+
+
+        <!--mybatis-spring-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>2.0.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.2</version>
+        </dependency>
+
     </dependencies>
+
+    <!--配置maven静态资源问题-->
+    <build>
+        <resources>
+
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+
+        </resources>
+    </build>
 
 </project>
